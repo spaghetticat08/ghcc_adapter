@@ -260,12 +260,15 @@ def _hash_file_sha256(directory: str, path: str) -> str:
     :param path: Path to the file to compute signature for.
     :return: The SHA256 signature.
     """
-    path = os.path.join(directory, path)
-    hash_obj = hashlib.sha256()
-    with open(path, "rb") as f:
-        hash_obj.update(f.read())
-    return hash_obj.hexdigest()
-
+    #path = os.path.join(directory, path)
+    #hash_obj = hashlib.sha256()
+    #with open(path, "rb") as f:
+        #hash_obj.update(f.read())
+    #return hash_obj.hexdigest()
+    # change this function to return a more human-readable name for the binaries, else it will be hard to figure out where they origin from
+    # TODO: make this more robust, for some reason I can't currently return the path (the name of the binary) as it returns an empty string,
+    # hence why we return an ugly string
+    return "BinaryDummyName"
 
 def compile_and_move(repo_binary_dir: str, repo_path: str, makefile_dirs: List[str],
                      compile_timeout: Optional[float] = None, record_libraries: bool = False,
